@@ -21,10 +21,12 @@
 
 
 module MULWrapper(
+    input  wire clk,rst,valid,flush_ex,
     input  wire [31:0]a,
     input  wire [31:0]b,
     input  wire [2:0]funct3,
-    output wire [31:0]y
+    output wire [31:0]y,
+    output wire done
     );
     wire [31:0]a_abs,b_abs,y_shifted;
     wire [63:0]y_unsigned,y_signed;
@@ -38,10 +40,15 @@ module MULWrapper(
     assign b_abs = take_abs_b ? (-b) : b;
     assign zero_result = (a==32'b0) | (b==32'b0);
     
-    MUL mul(
+    MULPipelined mul(
+    .clk(clk),
+    .rst(rst),
+    .valid(valid),
+    .flush_ex(flush_ex),
     .a(a_abs),
     .b(b_abs),
-    .y(y_unsigned)
+    .y(y_unsigned),
+    .done(done)
     );
     
     assign sign = take_abs_a ^ take_abs_b;

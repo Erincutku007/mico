@@ -52,7 +52,8 @@ module PriorityEncoder32(
             4'b1XXX: selection = 2'b00; // 
             4'b01XX: selection = 2'b01; // 
             4'b001X: selection = 2'b10; //
-            4'b0001: selection = 2'b11; // 
+            4'b0001: selection = 2'b11; //
+            default selection = 0;
         endcase
     end
     
