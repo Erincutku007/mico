@@ -97,12 +97,13 @@ module MemoryCoreWrapper(
             an <= 0;
         end
         else begin
-            case (rd_addr1[1:0])
-                2'b00: LED <= wr_din0[15:0];
-                2'b01: seg <= wr_din0[6:0];
-                2'b10: dp <= wr_din0[0];
-                2'b11: an <= wr_din0[3:0];
-            endcase
+            if (IO_selected & we0)
+                case (rd_addr1[1:0])
+                    2'b00: LED <= wr_din0[15:0];
+                    2'b01: seg <= wr_din0[6:0];
+                    2'b10: dp <= wr_din0[0];
+                    2'b11: an <= wr_din0[3:0];
+                endcase
         end    
     end
     
