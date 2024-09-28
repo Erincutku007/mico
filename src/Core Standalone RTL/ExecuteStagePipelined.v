@@ -62,28 +62,43 @@ module ExecuteStagePipelined(
     .alu_flags(alu_flags)
     );
     //M extension wrapper inputs
-    MULWrapper mul_alu(
-        .clk(clk),
-        .rst(rst),
-        .valid(mul_valid),
-        .flush_ex(flush_ex),
-        .a(A),
-        .b(B),
-        .funct3(funct3_masked),
-        .y(mul_result),
-        .done(mul_done)
-    );
+//    MULWrapper mul_alu(
+//        .clk(clk),
+//        .rst(rst),
+//        .valid(mul_valid),
+//        .flush_ex(flush_ex),
+//        .a(A),
+//        .b(B),
+//        .funct3(funct3_masked),
+//        .y(mul_result),
+//        .done(mul_done)
+//    );
     
-    DivideWrapper divide_alu(
+//    DivideWrapper divide_alu(
+//        .clk(clk),
+//        .reset(rst),
+//        .valid(div_valid),
+//        .flush_ex(flush_ex),
+//        .a(A),
+//        .b(B),
+//        .funct3(funct3_masked),
+//        .res(div_result), 
+//        .done(div_done)
+//    );
+    
+    DivMulALUFused MAlu(
         .clk(clk),
         .reset(rst),
-        .valid(div_valid),
+        .mul_valid(mul_valid),
+        .div_valid(div_valid),
         .flush_ex(flush_ex),
         .a(A),
         .b(B),
         .funct3(funct3_masked),
-        .res(div_result), 
-        .done(div_done)
+        .res(div_result),
+        .y(mul_result),
+        .division_done(div_done),
+        .multiplication_done(mul_done)
     );
     //address adder inputs
     assign adr_adder_a_input = adr_adder_a ? pc_dec : A;
