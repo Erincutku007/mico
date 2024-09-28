@@ -1,4 +1,4 @@
-A RISCV IMF core.
+A RISCV IM(soon to be F) core.
 
  Vanilla I set implementation of the core can be found under my VLSI II respitory. That implementation lacks the elactic interface between execute and the memory stages.
 
@@ -11,5 +11,7 @@ At the time of writing the standalone core supports 100MHZ operation in my BASYS
 An FPGA wrapper that involves an AXI lite interface for communication is included. 
 # I have resorted to the following solution Because the Brams need 2 cycles for write and read operations.
 A clock with twice the frequency of the core is connected to the BRAM. This eliminated the need for handshakes in the fetch stage. Also since two frequencies are divisible by a whole number, there is no need for synchronizers to handle the clock domain crossings. 
+
+F set only lacks the division part. I am planning to implement a radix 4 division algorithm for the division in the future. Until then you view find my [floating point unit respitory](https://github.com/Erincutku007/Floating-Point-Unit) for the current state of my F set implementation. 
 
 PS: the core is named after my dog.
