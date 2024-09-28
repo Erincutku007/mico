@@ -9,4 +9,5 @@ A RISCV IMF core.
 At the time of writing the standalone core supports 100MHZ operation in my BASYS3 board in default synthesis settings.
 
 An FPGA wrapper that involves an AXI lite interface for communication is included. 
-# I have resorted to the following solution Because the Brams need 2 cycles for write and read operations. A clock with twice the frequency of the core is connected to the BRAM. This eliminated the need for handshakes in the fetch stage. Also since two frequencies are divisible by a whole number, there is no need for synchronizers to handle the clock domain crossings. 
+# I have resorted to the following solution Because the Brams need 2 cycles for write and read operations.
+A clock with twice the frequency of the core is connected to the BRAM. This eliminated the need for handshakes in the fetch stage. Also since two frequencies are divisible by a whole number, there is no need for synchronizers to handle the clock domain crossings. 
