@@ -1,4 +1,4 @@
-# With adding some FPGA demos, I am planning to sunset this project. The technical debt of the project accumulated so much, I might be better off reimplementing a core. Current avaible demos can be found here.
+# With adding some FPGA demos, I am planning to sunset this project. The technical debt of the project accumulated so much, I might be better off reimplementing a core. Current avaible demos can be found [here](https://github.com/Erincutku007/mico/tree/main/test_scipts).
 
 A RISCV IM(soon to be F) core.
 
