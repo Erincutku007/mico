@@ -1,3 +1,4 @@
+#With adding some FPGA demos, I am planning to sunset this project. The technical debt of the project accumulated so much, I might be better off reimplementing a core. Current avaible demos can be found here.
 A RISCV IM(soon to be F) core.
 
  Vanilla I set implementation of the core can be found under my VLSI II respitory. That implementation lacks the elactic interface between execute and the memory stages.
