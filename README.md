@@ -16,4 +16,6 @@ A clock with twice the frequency of the core is connected to the BRAM. This elim
 
 F set only lacks the division part. I am planning to implement a radix 4 division algorithm for the division in the future. Until then you view find my [floating point unit respitory](https://github.com/Erincutku007/Floating-Point-Unit) for the current state of my F set implementation. 
 
+The core's AXI-LITE interface is adopted from [this](https://zipcpu.com/blog/2021/12/30/dbgaxil.html) article. It is slightly modified to fit my ready-valid handshake. I highly recommend the whole page, as it includes very well-made designs and articles about them.
+
 PS: the core is named after my dog.
